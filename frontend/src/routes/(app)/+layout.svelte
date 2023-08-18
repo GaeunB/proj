@@ -2,19 +2,43 @@
 	export let data;
 	import { page } from '$app/stores';
 	import { Sidebar, SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte';
+	import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
+  import { Icon } from 'flowbite-svelte-icons';
+
 	let activeUrl: string;
 	$: {
 		activeUrl = $page.url.pathname;
 		console.log(`activeUrl:${activeUrl}`);
 	}
+	let activeClass = 'flex items-center p-2 text-base font-normal text-primary-900 bg-primary-200 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-100 dark:hover:bg-gray-700';
+  let nonActiveClass = 'flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';
 </script>
 
-<section class="flex">
+
+<Navbar let:hidden let:toggle rounded color="pink">
+  <NavBrand href="/">
+    <img src="logo1.png" class="mr-3 h-6 sm:h-9" alt="청바지몰 로고" />
+    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-pink-500">청바지몰</span>
+  </NavBrand>
+  <NavHamburger on:click={toggle} />
+  <NavUl {hidden}>
+    <NavLi href="/" active={true}>홈</NavLi>
+    <NavLi href="#">검색하기</NavLi>
+    <NavLi href="#">장바구니</NavLi>
+    <NavLi href="#">나의 정보</NavLi>
+    <NavLi href="#">고객센터</NavLi>
+  </NavUl>
+</Navbar>
+
+
+
+<section class="flex flex-1">
 	<div>
-		<Sidebar>
+		<Sidebar color="gray">
 			<SidebarWrapper>
 				<SidebarGroup>
-					<SidebarItem label="Home" href="/home" active={activeUrl === '/home'}>
+					<SidebarItem label="홈" href="/home" active={activeUrl === '/home'}>
+						
 						<svelte:fragment slot="icon">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +55,7 @@
 							>
 						</svelte:fragment>
 					</SidebarItem>
-					<SidebarItem label="Search" href="/search" active={activeUrl === '/search'}>
+					<SidebarItem label="검색" href="/search" active={activeUrl === '/search'}>
 						<svelte:fragment slot="icon">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +72,7 @@
 							>
 						</svelte:fragment>
 					</SidebarItem>
-					<SidebarItem label="Statistics" href="/statistics" active={activeUrl === '/statistics'}>
+					<SidebarItem label="장바구니" href="/statistics" active={activeUrl === '/statistics'}>
 						<svelte:fragment slot="icon">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +89,7 @@
 							>
 						</svelte:fragment>
 					</SidebarItem>
-					<SidebarItem label="Profile" href="/profile" active={activeUrl === '/profile'}>
+					<SidebarItem label="나의 정보" href="/profile" active={activeUrl === '/profile'}>
 						<svelte:fragment slot="icon">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -82,41 +106,10 @@
 							>
 						</svelte:fragment>
 					</SidebarItem>
-					<SidebarItem label="Sign Out" href="/logout" active={activeUrl === '/'}>
-						<svelte:fragment slot="icon">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="w-6 h-6"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"
-								/></svg
-							>
-						</svelte:fragment>
-					</SidebarItem>
-					<SidebarItem label="Settings" href="/settings" active={activeUrl === '/settings'}>
-						<svelte:fragment slot="icon">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								class="w-6 h-6"
-								><path
-									d="M19 11V9a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L12 2.757V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L2.929 4.343a1 1 0 0 0 0 1.414l.536.536L2.757 8H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535L8 17.243V18a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H18a1 1 0 0 0 1-1Z"
-								/>
-								<path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" /></svg
-							>
-						</svelte:fragment>
-					</SidebarItem>
+					
+					
 					{#if data.role === 'admin'}
-						<SidebarItem label="Userlist" href="/userlist" active={activeUrl === '/userlist'}>
+						<SidebarItem label="고객센터" href="/userlist" active={activeUrl === '/userlist'}>
 							<svelte:fragment slot="icon">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -131,12 +124,29 @@
 								>
 							</svelte:fragment>
 						</SidebarItem>
-					{/if}
+						{/if}
+						<SidebarItem label="로그아웃" href="/logout" active={activeUrl === '/'}>
+							<svelte:fragment slot="icon">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke-width="1.5"
+									stroke="currentColor"
+									class="w-6 h-6"
+									><path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"
+									/></svg
+								>
+							</svelte:fragment>
+						</SidebarItem>
 				</SidebarGroup>
 			</SidebarWrapper>
 		</Sidebar>
 	</div>
-	<div>
+	<div class="flex-1 justify-center">
 		<slot />
 	</div>
 </section>

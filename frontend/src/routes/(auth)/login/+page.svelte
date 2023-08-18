@@ -7,24 +7,24 @@
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
 	<div class="sm:mx-auto sm:w-full sm:max-w-sm">
-		<img class="mx-auto h-10 w-auto" src="/xsearchlogo.png" alt="Your Company" />
-		<h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-indigo-500">
-			Sign in to your account
+		<img class="mx-auto h-0 w-auto" src="/logo1.png" alt="Your Company" />
+		<h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-pink-500">
+			로그인하기
 		</h2>
 	</div>
 	<Card class="px-6 mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 		<form use:enhance class="space-y-5" action="?/login" method="POST">
 			<div>
-				<Label for="id" class="mb-2.5 text-indigo-400">Your id</Label>
-				<Input id="id" name="id" type="text" placeholder="Your id here" size="md" />
+				<Label for="id" class="mb-2.5 text-pink-400">전화번호</Label>
+				<Input id="id" name="id" type="text" placeholder="전화번호를 입력하세요." size="md" />
 			</div>
 			<div>
-				<Label for="password" class="mb-2.5 text-indigo-400">Your password</Label>
+				<Label for="password" class="mb-2.5 text-pink-400">비밀번호</Label>
 				<Input
 					id="password"
 					name="password"
 					type={show ? 'text' : 'password'}
-					placeholder="Your password here"
+					placeholder="비밀번호를 입력하세요."
 					size="lg"
 				>
 					<button slot="left" on:click={() => (show = !show)} class="pointer-events-auto">
@@ -67,20 +67,20 @@
 			<div class="mt-7">
 				<button
 					type="submit"
-					class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:text-indigo-500 hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-					>Sign in</button
+					class="flex w-full justify-center rounded-md bg-pink-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:text-pink-500 hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
+					>로그인</button
 				>
 			</div>
 			{#if form?.incorrect}<p class="error text-red-500">{form.message}</p>{/if}
 		</form>
 
-		<div class="mt-5 text-center text-sm">
-			<a href="#" class="font-semibold text-indigo-500 hover:text-indigo-400">Forgot password?</a>
-		</div>
+		<!-- <div class="mt-5 text-center text-sm">
+			<a href="#" class="font-semibold text-indigo-500 hover:text-pink-400">비밀번호를 잊어버리셨나요?</a>
+		</div> -->
 		<p class="mt-5 text-center text-sm text-gray-500">
-			Not a member?
-			<a href="/register" class="font-semibold leading-6 text-indigo-500 hover:text-indigo-400"
-				>Sign up in 1 minute!</a
+			
+			<a href="/register" class="flex w-full justify-center rounded-md bg-pink-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:text-pink-500 hover:bg-pink-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink-500"
+				>회원가입하기</a
 			>
 		</p>
 	</Card>

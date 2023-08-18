@@ -47,6 +47,10 @@
 	};
 </script>
 
+<div class="m-20">
+  <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-pink-600 from-pink-500">고객 센터</span> </h1>
+</div>
+
 <Table hoverable={true}>
 	<TableHead class="text-indigo-600">
 		<TableHeadCell>ID</TableHeadCell>
@@ -55,7 +59,7 @@
 		<TableHeadCell>Phone</TableHeadCell>
 		<TableHeadCell>Role</TableHeadCell>
 		<TableHeadCell>
-			<span class="sr-only">Edit</span>
+			<span class="sr-only">수정하기</span>
 		</TableHeadCell>
 	</TableHead>
 	<TableBody class="divide-y">
@@ -65,7 +69,7 @@
 				<TableBodyCell>{item.name}</TableBodyCell>
 				<TableBodyCell>{item.email}</TableBodyCell>
 				<TableBodyCell>{item.phone}</TableBodyCell>
-				<TableBodyCell>{item.role}</TableBodyCell>
+				<!-- <TableBodyCell>{item.role}</TableBodyCell> -->
 				<TableBodyCell>
 					<a
 						href="/profile?userId={item.id}"
@@ -84,3 +88,4 @@
 	on:previous={previous}
 	on:next={next}
 />
+

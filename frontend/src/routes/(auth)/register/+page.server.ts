@@ -26,11 +26,11 @@ export const actions: Actions = {
 			await api.post(
 				'auth/register',
 				{
-					id: data.get('id'),
-					password: data.get('password'),
 					name: data.get('name'),
-					email: data.get('email'),
 					phone: data.get('phone'),
+					password: data.get('password'),
+					// id: data.get('id'),
+					// email: data.get('email'),
 					role: 'user'
 				},
 				''

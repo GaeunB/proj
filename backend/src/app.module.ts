@@ -9,7 +9,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DateController } from './modules/date/date.controller';
 import { MinioModule } from './miniocon/minio.module'; // Import the MinioModule
 import { LoggerMiddleware } from './modules/logging/logger.middleware';
-import { MilvusModule } from './milvuscon/milvus.module'; // Import the MilvusModule
 
 @Module({
   imports: [
@@ -35,7 +34,6 @@ import { MilvusModule } from './milvuscon/milvus.module'; // Import the MilvusMo
     UserModule,
     AuthModule,
     MinioModule,
-    // MilvusModule
   ],
 
   controllers: [AppController, DateController],

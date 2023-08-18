@@ -4,6 +4,8 @@
 	let colors = 'purple';
 </script>
 
+
+
 <div class="max-w-lg mx-auto mt-8 mb-8">
 	<form action="?/register" method="POST">
 		<div class="grid gap-6 mb-6 md:grid-cols-2">
