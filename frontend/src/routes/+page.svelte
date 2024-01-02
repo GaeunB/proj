@@ -13,7 +13,9 @@
 		FooterCopyright,
 		FooterLinkGroup,
 		FooterBrand,
-		FooterLink
+		FooterLink,
+		GradientButton,
+		P
 	} from 'flowbite-svelte';
 
 	let value: any;
@@ -36,7 +38,7 @@
 				<div class="flex md:order-2">
 					<button
 						type="button"
-						class="flex text-white bg-pink-400 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-large font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-5"
+						class="flex text-white bg-greenToBlue-400 hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-large font-bold rounded-lg text-sm px-4 py-2 text-center mr-2 md:mr-5"
 						><a href="/login">로그인</a></button
 					>
 				</div>
@@ -44,7 +46,7 @@
 		</div>
 	</nav>
 	<!-- container mx-auto h-screen bg-pink-700 -->
-	<div class="h-1/2 mt-7 lg:mt-9 bg-img-top bg-pink-800">
+	<div class="h-1/2 mt-7 lg:mt-9 bg-img-top bg-green-100">
 		<!-- bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] -->
 		<!-- bg-gradient-to-r from-gray-300 via-gray-500 to-gray-700 -->
 		<!-- <div
@@ -52,20 +54,17 @@
 		/> -->
 		<div class="text-center px-3 lg:px-10 p-20 mt-10">
 			<h1
-				class="my-4 text-4xl md:text-3xl lg:text-5xl text-pink font-extrabold leading-tight pb-5"
+				class="my-4 text-4xl md:text-3xl lg:text-5xl text-pink font-extrabold leading-tight pb-9"
 			>
-				청.바.지
+				자기소개서 요약 페이지
 			</h1>
-			<p class="leading-normal text-black-400 text-base md:text-4xl lg:text-3xl mb-8 font-extrabold">
-				청춘을 바로 지금<br>
-				고령자를 위한 쇼핑몰
+			<p class="leading-normal text-black-400 text-base md:text-4xl lg:text-3xl mb-8 ">
+				프로메테우스 프로젝트<br>
+				변가은, 김지환, 남경현, 이성민, 이대헌, 최민재
 			</p>
 
-			<button
-				class="text-xl mx-auto lg:mx-0 border p-10 border-pink bg-white hover:font-extrabold rounded-lg rounded my-2 md:my-6 py-4 px-8 shadow-lg w-48"
-			>
-				<a href="/login"> 시작하기 </a>
-			</button>
+			<GradientButton size='xl' color="teal"><a href="/summary"> 요약하기 </a></GradientButton>
+				
 		</div>
 		<!-- <div
 			class="w-full h-3 bg-gradient-to-r from-gray-700 via-gray-500 to-white animate-gradient-shift"
@@ -78,40 +77,29 @@
 	</div>
 </body>
 
-	<!--Footer-->
-	<!-- <footer class="flex bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">청바지몰</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-        </li>
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-        </li>
-        <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline">Contact</a>
-        </li>
-    </ul>
-    </div>
-</footer> -->
+<Footer>
+  <FooterCopyright href="/" by="Prometheus" year={2023} />
+  <FooterLinkGroup ulClass="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <FooterLink href="/">About</FooterLink>
+    <FooterLink href="/">Privacy Policy</FooterLink>
+    <FooterLink href="/">Licensing</FooterLink>
+    <FooterLink href="/">Contact</FooterLink>
+  </FooterLinkGroup>
+</Footer>
+
 
 	
 
 
 <style>
-	.bg-img-top {
+	/* .bg-img-top {
 		background: 
 			url('/logo1.png');
 
 		/* background-image: url('/bg.jpg'); */
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
+		/* background-repeat: no-repeat;
+		background-size: cover; */
+	/* } */
 
 	.bg-img-bottom {
 		background: 
