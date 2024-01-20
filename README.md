@@ -31,4 +31,4 @@ NestJs를 이용하였고 Postgres DB와 Minio Storage를 함께 사용하였다
 + Image Embedding process
 + Feature extraction using ResNet 50
 + Similar image search using L2
-+ Statistics
++ Statistics# proj
